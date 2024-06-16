@@ -86,6 +86,16 @@
         <url-pattern>/products</url-pattern>
     </servlet-mapping>
 
+    <!-- AddToCartServlet 映射 -->
+    <servlet>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <servlet-class>main.java.com.example.controller.AddToCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <url-pattern>/add-to-cart</url-pattern>
+    </servlet-mapping>
+
     <!-- 欢迎文件列表 -->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

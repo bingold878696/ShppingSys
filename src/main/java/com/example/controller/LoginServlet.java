@@ -27,7 +27,6 @@ public class LoginServlet extends HttpServlet {
             ProductDao productDao = new ProductDao();
             List<Product> products = productDao.getAllProducts();
             request.setAttribute("products", products);
-            //response.sendRedirect("products.jsp");
             request.getRequestDispatcher("products.jsp").forward(request,response);
         } else {
             response.sendRedirect("login.jsp");

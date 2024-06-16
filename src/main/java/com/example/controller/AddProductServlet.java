@@ -30,13 +30,15 @@ public class AddProductServlet extends HttpServlet {
         ProductDao productDao = new ProductDao();
         productDao.addProduct(product);
 
-        //response.sendRedirect("adminDashboard.jsp");
+        UserDao userDao = new UserDao();
 
 
         List<Product> products = productDao.getAllProducts();
+        List<User> users = userDao.getAllUsers();
 
 
         request.setAttribute("products", products);
+        request.setAttribute("users", users);
 
 
         request.getRequestDispatcher("adminDashboard.jsp").forward(request, response);

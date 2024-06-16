@@ -62,4 +62,43 @@ public class ProductDao {
             e.printStackTrace();
         }
     }
+
+    public static void updateProductQuantity(int id, int newQuantity) {
+        String UPDATE_PRODUCT_QUANTITY_SQL = "UPDATE products SET quantity = ? WHERE id = ?";
+
+        try (Connection connection = DatabaseUtil.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PRODUCT_QUANTITY_SQL)) {
+            preparedStatement.setInt(1, newQuantity);
+            preparedStatement.setInt(2, id);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Product getProductById(String productId) {
+        String SELECT_PRODUCT_BY_ID = "SELECT * FROM products WHERE id = ?";
+        Product product = null;
+
+        try (Connection connection = DatabaseUtil.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PRODUCT_BY_ID)) {
+            preparedStatement.setString(1, productId);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String description = rs.getString("description");
+                double price = rs.getDouble("price");
+                int quantity = rs.getInt("quantity");
+
+                product = new Product(id, name, description, price, quantity);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return product;
+    }
 }
