@@ -19,19 +19,23 @@
         }
         .container {
             width: 80%;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
         h2, h3 {
             color: #333;
             text-align: center;
+            margin-bottom: 20px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
         }
         th, td {
             padding: 12px;
@@ -39,11 +43,14 @@
             border-bottom: 1px solid #ddd;
         }
         th {
-            background-color: #f8f8f8;
-            color: #333;
+            background-color: #007bff;
+            color: #fff;
         }
         tr:nth-child(even) {
             background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
         }
         a {
             text-decoration: none;
@@ -52,7 +59,7 @@
         a:hover {
             text-decoration: underline;
         }
-        .button {
+        .button, .admin-out-button {
             display: inline-block;
             padding: 10px 20px;
             margin: 10px 0;
@@ -66,8 +73,17 @@
             text-decoration: none;
             transition: background-color 0.3s;
         }
-        .button:hover {
+        .button:hover, .admin-out-button:hover {
             background-color: #0056b3;
+        }
+        .admin-out-button {
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+            background-color: #dc3545;
+        }
+        .admin-out-button:hover {
+            background-color: #c82333;
         }
     </style>
 </head>
@@ -129,6 +145,7 @@
         </tr>
         <% } %>
     </table>
+    <button class="admin-out-button" onclick="window.location.href = 'login.jsp'">退出登录</button>
 </div>
 </body>
 </html>

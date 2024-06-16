@@ -17,22 +17,24 @@
         }
         .container {
             width: 80%;
-            margin: 0 auto;
+            margin: 30px auto;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
         h2 {
             text-align: center;
             color: #333;
+            margin-bottom: 20px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-bottom: 20px;
         }
         th, td {
-            padding: 12px;
+            padding: 15px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -53,7 +55,7 @@
         .button {
             background-color: #007bff;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 15px;
             text-align: center;
             display: inline-block;
             border-radius: 5px;
@@ -61,6 +63,31 @@
         }
         .button:hover {
             background-color: #0056b3;
+        }
+        .admin-out-button {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            display: block;
+            width: 150px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .admin-out-button:hover {
+            background-color: #c82333;
+        }
+        .no-products {
+            text-align: center;
+            color: #888;
+            font-size: 16px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -92,12 +119,13 @@
         } else {
         %>
         <tr>
-            <td colspan="5" style="text-align: center;">没有商品</td>
+            <td colspan="5" class="no-products">没有商品</td>
         </tr>
         <%
             }
         %>
     </table>
+    <button class="admin-out-button" onclick="window.location.href = 'login.jsp'">退出登录</button>
 </div>
 </body>
 </html>
